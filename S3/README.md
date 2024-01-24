@@ -24,9 +24,35 @@ S3에 저장되어 있는 이미지나 비디오 파일을 html상에서 url을 
 ## 2. Spring Boot 설정
 
 #### 1. build.gradle 설정
-
+build.gradle의 dependencies에 aws 라이브러리를 추가해준다.
+```
+implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+```
 
 #### 2. application.properties 설정
+AWS cloudFormation 설정, S3 지역 설정, spring boot 업로드 용량 최대값 설정, properties include 설정을 입력해준다
+```
+# AWS cloud false
+cloud.aws.stack.auto=false
 
+# AWS S3 Service bucket
+cloud.aws.region.static=ap-northeast-2
 
+# upload file size limit
+spring.servlet.multipart.max-file-size=100MB
+spring.servlet.multipart.max-request-size=100MB
+
+#profile
+spring.profiles.include = apikey
+```
 #### 3. application-apikey.properties 설정
+AWS IAM access key, 버킷명 및 url을 입력해준다. 해당 값들은 자신의 계정에 해당하는 값을 입력한다.
+```
+# AWS IAM key
+cloud.aws.credentials.accessKey=
+cloud.aws.credentials.secretKey=
+
+# AWS S3 Bucket URL
+cloud.aws.s3.bucket.url=
+cloud.aws.s3.bucket=
+```
