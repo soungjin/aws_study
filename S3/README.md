@@ -3,16 +3,23 @@
 ## 1. S3 버킷 생성 및 설정
 
 #### 1. 버킷명 및 지역 설정
-
+![image](https://github.com/soungjin/aws_study/assets/96867509/22ac8258-340c-4a8f-93c2-5fda657c00bd)
 
 #### 2. 객체 소유권 설정
-
+![image](https://github.com/soungjin/aws_study/assets/96867509/801627f3-6cb5-4b10-a8ae-67306c0f6ddc)
+이번 코드에서는 ACL을 사용하지 않을 예정이므로 비활성화한다.
 
 #### 3. 퍼블릭 액세스 차단 설정
-
+![image](https://github.com/soungjin/aws_study/assets/96867509/fca8a0e9-4d4d-401c-a6ca-3bd2b33e7dfa)
+S3에 저장되어 있는 이미지나 비디오 파일을 html상에서 url을 통해 바로 띄울 예정이므로 퍼플릭 액세스를 열어놓는다.
+나머지 설정들은 기본값으로 설정하여 버킷을 생성한다.
 
 #### 4. 버킷 정책 설정
-
+생성된 버킷의 '권한-버킷 정책'을 편집한다.
+![image](https://github.com/soungjin/aws_study/assets/96867509/71de6d72-be1f-4127-8f04-bb70a17d8ca0)
+정책 생성기에 다음과 같이 입력을 해준다. Actions는 파일을 받기만 할 예정이므로 GetObject만 선택해준다.
+![image](https://github.com/soungjin/aws_study/assets/96867509/a63989f5-be53-4bf8-aefc-f0fb732991f4)
+생성된 JSON을 입력해준다. 이 때, Resource에 입력된 arn의 끝에 파일 경로 (여기서는 /*)를 추가로 입력해준다
 
 ## 2. Spring Boot 설정
 
