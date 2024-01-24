@@ -30,7 +30,7 @@ public class S3Service {
         String fileName = System.currentTimeMillis()+"_"+file.getOriginalFilename();
         s3Client.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
         fileObj.delete();
-        return "File Uploaded : " + fileName;
+        return "File Uploaded : " + s3Client.getUrl(bucketName, fileName).toString();
     }
 
     public byte[] downloadFile(String fileName){
