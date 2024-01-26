@@ -52,7 +52,6 @@ AWS IAM access key, 버킷명 및 url을 입력해준다. 해당 값들은 자�
 cloud.aws.credentials.accessKey=
 cloud.aws.credentials.secretKey=
 
-# AWS S3 Bucket URL
-cloud.aws.s3.bucket.url=
+# AWS S3 Bucket name
 cloud.aws.s3.bucket=
 ```
